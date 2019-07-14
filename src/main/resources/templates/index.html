@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/main_layout}">
+<th:block layout:fragment="head_fragment">
+    <!--  bootstrap and body css  -->
+    <th:block th:include="layout/fragments/header::head_fra"></th:block>
+    <title>이거 적용되나</title>
+    <style>
+
+    </style>
+</th:block>
+<!-- body layout -->
+<th:block layout:fragment="body_fragment">
+    <!-- navigation bar layout -->
+    <div><th:block th:include="layout/fragments/nav_bar :: nav_fra"></th:block></div>
+    <div id="empty_box"></div>
+
+    <!--  footer layout  -->
+    <div><th:block th:include="layout/fragments/footer :: foot_fra"></th:block></div>
+</th:block>
+</html>
