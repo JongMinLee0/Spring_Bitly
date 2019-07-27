@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/main_layout}">
+<th:block layout:fragment="head_fragment">
+    <!--  bootstrap and body css  -->
+    <th:block th:include="layout/fragments/header::head_fra"></th:block>
+    <title>로그인 페이지</title>
+
+</th:block>
+<!-- body layout -->
+<th:block layout:fragment="body_fragment">
+    <!-- navigation bar layout -->
+    <div><th:block th:include="layout/fragments/nav_bar :: nav_fra"></th:block></div>
+    <div id="empty_box">
+            <div class="container" style="margin: auto;">
+                <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-info" style="border: 1px solid #F5ECCE;">
+                        <div class="panel-heading" style="background-color: #F5ECCE; border: 1px solid #F5ECCE;">
+                            <div class="panel-title">Sign In</div>
+                        </div>
+                        <div style="padding-top:30px" class="panel-body" >
+                            <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                            <form action="/bitly/loginCheck" method="post" id="form_sub" class="form-horizontal" enctype="application/json">
+                                <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input id="id" type="text" class="form-control" name="id"  placeholder="username or email">
+                                </div>
+                                <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input id="pwd" type="password" class="form-control" name="pwd" placeholder="password">
+                                </div>
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+                                    <div class="col-sm-12 controls">
+                                        <input type="button" class="btn btn-warning" value="Login" id="btn_sub"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 control">
+                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                            Don't have an account!
+                                            <a href="/signup">
+                                                Sign Up Here
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <input type="hidden" id="url" value="/bitly/loginCheck" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <!--  footer layout  -->
+    <div><th:block th:include="layout/fragments/footer :: foot_fra"></th:block></div>
+</th:block>
+</html>
