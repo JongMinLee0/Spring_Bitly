@@ -2,14 +2,12 @@ package com.bit.controller;
 
 
 import com.bit.model.request.Login;
-import com.bit.model.response.ResponseWrapper;
 import com.bit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping("/bitly")
 public class BitlyController {
 
@@ -17,9 +15,9 @@ public class BitlyController {
     private UserService userService;
 
     @RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
-    public ResponseEntity<ResponseWrapper> loginCheck(@RequestBody Login login){
-        ResponseWrapper response = userService.checkLogin(login);
-        return new ResponseEntity<ResponseWrapper>(response, HttpStatus.OK);
+    public void loginCheck(@ModelAttribute Login login){
+        System.out.println(login.getPwd());
+        System.out.println(login.getId());
     }
 
 }
